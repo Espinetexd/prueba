@@ -10,7 +10,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Registrar usuari"/>
+        android:text="Registrar usuari"
+        android:textSize="20dp"
+        />
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TIL_Email"
         android:layout_width="match_parent"
@@ -48,4 +52,14 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/BTN_RegistrarUsuari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TIL_Password"
+        android:layout_centerInParent="true"
+        android:text="Registrat"
+        android:paddingHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        />
 </RelativeLayout>
