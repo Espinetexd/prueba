@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityLoginUsuari"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="25sp"
+        android:gravity="center_horizontal"
+
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL_Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+
+        >
+        <EditText
+            android:id="@+id/ET_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL_Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/TIL_Email"
+        android:layout_marginTop="10dp"
+        app:passwordToggleEnabled="true"
+        >
+        <EditText
+            android:id="@+id/ET_Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+
+
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/BTN_LoginUsuari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TIL_Password"
+        android:layout_centerInParent="true"
+        android:text="Login"
+        android:paddingHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/TV_NouCompte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No tens un compte? Registrat"
+        android:layout_below="@+id/BTN_LoginUsuari"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        />
+    <TextView
+        android:id="@+id/RecuperarPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Has olblidat la contrasenya? Fes clic aqui"
+        android:layout_below="@+id/TV_NouCompte"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        />
+
+</RelativeLayout>

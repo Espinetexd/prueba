@@ -103,6 +103,8 @@ public class ActivityRegistrarUsuari extends AppCompatActivity {
                 Toast.makeText(ActivityRegistrarUsuari.this,e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 
 
