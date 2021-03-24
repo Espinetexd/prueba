@@ -1,8 +1,10 @@
 package com.example.firebaseexempleauth;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -59,6 +61,18 @@ public class ActivityRegistrarUsuari extends AppCompatActivity {
 
         });
     }
+    private void PrepararActionBar(){
+        ActionBar actionBar =  getSupportActionBar();
+        actionBar.setTitle("Registre usuari");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    public boolean onSupportNavigateUp(){
+
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 
     private void RegistrarUsuari(String email, String password) {
 
@@ -74,6 +88,10 @@ public class ActivityRegistrarUsuari extends AppCompatActivity {
                             FirebaseUser usuariActual = mAuth.getCurrentUser();
                             Toast.makeText(ActivityRegistrarUsuari.this,"Registre de" + usuariActual.getEmail(),
                                     Toast.LENGTH_SHORT).show();
+
+
+                            startActivity(new Intent(ActivityRegistrarUsuari.this,PerfilUsuari.class));
+
                         }else{
                             Toast.makeText(ActivityRegistrarUsuari.this,"Ja hi ha un usuari amb aquest email", Toast.LENGTH_SHORT).show();
                         }
@@ -86,4 +104,7 @@ public class ActivityRegistrarUsuari extends AppCompatActivity {
             }
         });
     }
+
+
+
 }
