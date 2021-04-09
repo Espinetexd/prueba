@@ -10,14 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ActivityLoginUsuari"></activity>
-        <activity android:name=".PerfilUsuari" />
-        <activity android:name=".ActivityRegistrarUsuari" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".PerfilUsuari" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ActivityRegistrarUsuari" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

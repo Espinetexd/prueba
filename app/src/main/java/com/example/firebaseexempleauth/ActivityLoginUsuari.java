@@ -1,5 +1,6 @@
 package com.example.firebaseexempleauth;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,12 +12,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ActivityLoginUsuari extends AppCompatActivity {
 
     private TextView mRecuperarPsw;
-    private DialogCarregant dialogCarregant;
-
+    private DialogCarregant mDialogCarregant;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,8 @@ public class ActivityLoginUsuari extends AppCompatActivity {
         setContentView(R.layout.activity_login_usuari);
         mRecuperarPsw = findViewById(R.id.RecuperarPassword);
         PrepararActionBar();
+        mDialogCarregant = new DialogCarregant();
+        mAuth = FirebaseAuth.getInstance();
         mRecuperarPsw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +75,24 @@ public class ActivityLoginUsuari extends AppCompatActivity {
     }
 
     private void IniciarRecuperacioPassword(String email) {
+        mDialogCarregant.show(getSupportFragmentManager(),null);
+
+
+        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                mDialogCarregant.dismiss();
+
+                if(task.isSuccessful()){
+                    Toast.makeText(ActivityLoginUsuari.this,"Email enviat", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(ActivityLoginUsuari.this,"Email NO enviat", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
     }
 
     private void PrepararActionBar(){

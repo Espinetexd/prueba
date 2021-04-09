@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ActivityRegistrarUsuari extends AppCompatActivity {
 
@@ -86,6 +88,18 @@ public class ActivityRegistrarUsuari extends AppCompatActivity {
 
 
                             FirebaseUser usuariActual = mAuth.getCurrentUser();
+
+
+                            Usuari usuari = new Usuari();
+                            usuari.setmUid(usuariActual.getUid());
+                            usuari.setmEmail(usuariActual.getEmail());
+                            usuari.setmNom("");
+                            usuari.setmTelefon("");
+                            FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                            DatabaseReference reference = firebaseDatabase.getReference();
+                            reference.child("Usuaris").child(usuari.getmUid()).setValue(usuari);
+
+
                             Toast.makeText(ActivityRegistrarUsuari.this,"Registre de" + usuariActual.getEmail(),
                                     Toast.LENGTH_SHORT).show();
 
